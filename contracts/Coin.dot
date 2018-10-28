@@ -1,0 +1,29 @@
+strict digraph {
+  Coin
+  goalReached [color=blue]
+  goalFailed
+  setTreeAddress
+  buyCoin [color=brown]
+  weekSaleSum
+  getPoints [color=blue]
+  ETA
+  setFirstEligible
+  addEligible
+  withdrawCapital [color=purple]
+  transfer
+  CalculateWeight [color=blue]
+  claimCoins [color=purple]
+  requestDelivery
+  CoinRequested
+  markShipped
+  LogCoinShipped
+  confirmDelivery
+  LogCoinConfirmed
+  buyCoin -> weekSaleSum
+  withdrawCapital -> transfer
+  claimCoins -> transfer
+  requestDelivery -> CoinRequested
+  markShipped -> LogCoinShipped
+  confirmDelivery -> LogCoinConfirmed
+}
+
