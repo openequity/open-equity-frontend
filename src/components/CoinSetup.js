@@ -10,6 +10,7 @@ import CoinPub from '../../build/contracts/CoinPub.json'
 import getWeb3 from '../utils/getWeb3'
 var Contract=truffleContract(CoinPub)
 class CoinSetup extends Component {
+
     state = {
       value: 1,
       secondSlider: 50,
@@ -21,8 +22,6 @@ class CoinSetup extends Component {
       customership:'',
       governance:'default'
     };
-
-    handleChange2 = (event, index, value) => this.setState({value});
 
     instantiateContract(web3){
         console.log(web3)

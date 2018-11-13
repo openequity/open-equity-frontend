@@ -138,7 +138,7 @@ contract CoinPub  {
               weightCoefficient2:1
             });
       }
-  function modifyCoinStruct(uint _CoinID,uint _goal,uint _startdate,uint _enddate,uint _eligibleCount,uint _weight, uint _weight2)
+  function modifyCoinStruct(uint _CoinID,uint _goal,uint _startdate,uint _enddate,uint _eligibleCount,uint _weight, uint _weight2,uint8 dec,uint init)
 	 isAuthor()   {
 	              CoinStruct storage temp=Coins[_CoinID];
 	              temp.goal=_goal;
@@ -148,8 +148,9 @@ contract CoinPub  {
                 temp.weightCoefficient=_weight;
                 temp.weightCoefficient2=_weight2;
 
-      //bytes data=0xa50b4f0;
-      //publishCoin( _CoinID ,  uint8(1000), uint(1000),  uint(0) );
+    
+      publishCoin( _CoinID , dec , init );
+      createdCoinIDs[msg.sender].push(_CoinID);
    }
 
   function publishCoin(uint id,uint8 _decimalUnits,uint _initialAmount ) {
@@ -190,5 +191,13 @@ contract CoinPub  {
   }
   return P;
 }
+  function getQueuedCoin() constant returns(uint){
+    
+    return  QueuedCoin[msg.sender];
+
+  }
+  function getCoins(address a) constant returns(uint[]){
+    return createdCoinIDs[a];
+  }
 
 }

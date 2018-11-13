@@ -41,7 +41,7 @@ contract Coin is HumanStandardToken {
      uint _weightCoefficient,
      uint _weightCoefficient2
      )
-    HumanStandardToken(_initialAmount, _tokenName, _decimalUnits, _tokenSymbol){
+    HumanStandardToken(_initialAmount, _tokenName, _decimalUnits, _tokenSymbol,_authorAddress){
     authorAddress = _authorAddress;
     customershipStake = _customershipStake;
     goal = _goal;
